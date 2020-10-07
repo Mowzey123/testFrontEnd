@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>EFRIS 360</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- End layout styles -->
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo" href="index.html"><img src="../../assets/images/cognative.png" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../../assets/images/cognative.png" alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+     
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-profile">
+              <a href="#" class="nav-link">
+                <div class="nav-profile-image">
+                  <img src="../../assets/images/faces/face25.jpg" alt="profile">
+                  <span class="login-status online"></span>
+                  <!--change to offline or busy as needed-->
+                </div>
+                <div class="nav-profile-text d-flex flex-column">
+                  <span class="font-weight-bold mb-2">Cognative Insights</span>
+                  <span class="text-secondary text-small">Project Manager</span>
+                </div>
+                <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Stock And Inventory</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic2">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="../../pages/stock/allproducts.html">All Stock</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../../pages/stock/addproducts.html">Add New Product</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
+                <span class="menu-title">Invoices</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-basic1">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/buttons.html">All Invoices</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Add New Note</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/buttons.html">All credit Notes</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Add New  Credit Note</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row" id="proBanner">
+         
+            </div>
+            <div class="page-header">
+              <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-home"></i>
+                </span> Add Inventory </h3>
+              <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                  <li class="breadcrumb-item active" aria-current="page">
+                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <!-- <h4 class="card-title">Add New Product</h4> -->
+                    <form class="form-sample" method="post">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Product Name</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="goodsName" name='goodsName' required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Unique ID</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="goodsCode" name='goodsCode' required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Measure Unit</label>
+                            <div class="col-sm-9">
+                              <select class="form-control" id='measureUnit' name='measureUnit' required>
+                                <option></option>
+                                <option value="per liter">Per Litre</option>
+                                <option value="per stick">Per Stick</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Currency</label>
+                            <div class="col-sm-9">
+                              <select class="form-control" id='currency' name='currency' required>
+                                <option></option>
+                                <option value="UGX">UGX</option>
+                                <option value="USD">USD</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Unit Price</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="unitPrice" name='unitPrice' required>
+                            </div>
+                          </div>
+                        </div>
+                      
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Has Excise</label>
+                            <div class="col-sm-9">
+                              <select class="form-control" id="haveExciseTax" name='haveExciseTax' required>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Has Piece Unit</label>
+                            <div class="col-sm-9">
+                              <select class="form-control" id='havePieceUnit' name='havePieceUnit' required>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Stock Prewarning</label>
+                            <div class="col-sm-9">
+                              <input type="number" min="1" class="form-control" id="stockPrewarning" name='stockPrewarning' required>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                       <p class="card-description"> Categorisation </p>
+                      <br/>
+                      <div class="row"> 
+                        <div class="col-md-12">
+                          <div class="form-group row">
+                            <label class="col-sm-12 col-form-label">Top Level Category</label>
+                            <div class="col-sm-12">
+                              <select class="form-control top1" required onchange="myFunction(this.value,'top1')">
+                                <option>Select Top Level Category</option>
+                                <option></option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group row">
+                            <label class="col-sm-12 col-form-label">Level 2 Category</label>
+                            <div class="col-sm-12">
+                              <select class="form-control top2" onchange="myFunction(this.value,'top2')">
+                                <option>Select 2nd Level Category</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group row">
+                            <label class="col-sm-12 col-form-label">Level 3 Category</label>
+                            <div class="col-sm-12">
+                              <select class="form-control top3" onchange="myFunction(this.value,'top3')">
+                                <option>Select 3rd Level Category</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group row">
+                            <label class="col-sm-12 col-form-label">Level 4 Category</label>
+                            <div class="col-sm-12">
+                              <select class="form-control top4">
+                                <option>Select 4th Level Category</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                
+                      <p class="card-description"> Description </p>
+                      <div class="row"> 
+                        <div class="col-md-12">
+                          <div class="form-group row">
+                            <div class="col-sm-12">
+                              <textarea name="description" id="description" cols='10' row='7' class="form-control"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button class='btn btn-lg btn-primary form-control' type='submit'> Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <!-- <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="https://www.cognativeinsights.com/" target="_blank">Cognative Insights</a>. All rights reserved.</span>
+            </div>
+          </footer> -->
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="../../assets/vendors/chart.js/Chart.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="../../assets/js/dashboard.js"></script>
+    <script src="../../assets/js/todolist.js"></script>
+    <script src="../../assets/js/fetchReq.js"></script>
+    <script>
+
+        function getTopLevelCategories(){
+          var url = 'http://127.0.0.1:4000/efris_v.0.0.1/categoriesManagement/getLevelOneCategories';
+          var top1 = '';
+          postData(url,{})
+            .then(data => {
+                console.log(data); // JSON data parsed by `data.json()` call
+                if(data.status){
+                    data.data.forEach(element => {
+                      top1 += `
+                      <option value="${element.commodityCategoryCode}">
+                        ${element.commodityCategoryName}
+                      </option>
+                      `
+                    });
+                    $('.top1').append(top1)
+                }else{
+                    console.log("Failed")
+                }
+            });
+        }
+        getTopLevelCategories();
+
+        function myFunction(val,cat){
+          var url = ''
+          var toappend = ''
+          var data = {
+          "commodityCategoryLevel": "",
+          "parentCode": ""
+          };
+          switch (cat) {
+            case "top1":
+              url = "http://127.0.0.1:4000/efris_v.0.0.1/categoriesManagement/getLevelTwoCategories";
+              data.commodityCategoryLevel = '2'
+              toappend = ".top2"
+              break;
+            case "top2":
+              url = "http://127.0.0.1:4000/efris_v.0.0.1/categoriesManagement/getLevelThreeCategories";
+              data.commodityCategoryLevel = '3'
+              toappend = ".top3"
+            break;
+            case "top3":
+              url = "http://127.0.0.1:4000/efris_v.0.0.1/categoriesManagement/getLevelFourCategories";
+              data.commodityCategoryLevel = '4'
+              toappend = ".top4"
+            break;
+            default:
+              break;
+          }
+          data.parentCode = val
+          var top1 = '';
+          postData(url,data)
+            .then(data => {
+                if(data.status){
+                    data.data.forEach(element => {
+                      top1 += `
+                      <option value="${element.commodityCategoryCode}">
+                        ${element.commodityCategoryName}
+                      </option>
+                      `
+                    });
+                    $(toappend).append(top1)
+                }else{
+                    console.log("Failed")
+                }
+            });
+        }
+
+        $('.form-sample').on('submit',function(e){
+          e.preventDefault()
+          var obj = {goods:[{}]}
+          obj.goods[0].goodsName = $('#goodsName').val();
+          obj.goods[0].goodsCode = $('#goodsCode').val();
+          obj.goods[0].unitPrice = $('#unitPrice').val();
+          obj.goods[0].haveExciseTax = $('#haveExciseTax').val();
+          obj.goods[0].havePieceUnit = $('#havePieceUnit').val();
+          obj.goods[0].commodityCategoryId = $('.top4').val();
+          obj.goods[0].description = $('#description').val()
+          obj.goods[0].stockPrewarning = $("#stockPrewarning").val()
+          console.log($('#description').val())
+          obj.goods[0].measureUnit = $("#measureUnit").val()
+          obj.goods[0].currency = $("#currency").val()
+          var url = 'http://127.0.0.1:4000/efris_v.0.0.1/inventoryManagement/saveGoods';
+          var top1 = '';
+          postData(url,obj)
+            .then(data => {
+                console.log(data); // JSON data parsed by `data.json()` call
+                if(data.status){
+                    alert("Saved product")
+                }else{
+                    console.log("Failed")
+                }
+            });
+        })
+      </script>
+    <!-- End custom js for this page -->
+  </body>
+</html>
