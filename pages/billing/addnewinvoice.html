@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -51,7 +52,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../../index.html">
+              <a class="nav-link" href="index.html">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -96,7 +97,7 @@
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-home"></i>
-                </span> Inventory </h3>
+                </span> Add New Invoice Or reciept </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item active" aria-current="page">
@@ -106,37 +107,120 @@
               </nav>
             </div>
             <div class="row">
-                <div class="col-lg-12 grid-margin stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">All Products In Stock</h4>
-                      </p>
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th>Unit Price.</th>
-                            <th>Category</th>
-                            <th>Stock</th>
-                            <th>Date Added</th>
-                          </tr>
-                        </thead>
-                        <tbody class='tbody'>
-                     
-                        </tbody>
-                      </table>
-                    </div>
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <!-- <h4 class="card-title">Add New Product</h4> -->
+                    <form class="form-sample" method="post">
+                      <div class="row">
+                        <div class="col-md-12">
+                            <h5>Buyer Details</h5>
+                        </div>                            
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Buyer Name</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="buyerName" name='buyerName' required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Buyer Tin</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="buyerTin" name='buyerTin' required>
+                              </div>
+                            </div>
+                          </div>
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Buyer Email</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="buyerEmail" name='buyerEmail' required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h5>Basic Details</h5>
+                        </div>    
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Currency</label>
+                            <div class="col-sm-9">
+                              <select class="form-control" id='currency' name='currency' required>
+                                <option></option>
+                                <option value="UGX">UGX</option>
+                                <option value="USD">USD</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Type</label>
+                              <div class="col-sm-9">
+                                <select class="form-control" id='type' name='type' required>
+                                  <option></option>
+                                  <option value="invoice">Invoice</option>
+                                  <option value="reciept">Reciept</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Issue Date</label>
+                              <div class="col-sm-9">
+                                <input type='date' class="form-control" id='issuedate' name='issuedate' required>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    <h5>Items</h5>
+                      <hr/>
+                      <div class="row"> 
+                        <div class="col-md-4">
+                          <div class="form-group row">
+                            <label class="col-sm-12 col-form-label">Product</label>
+                            <div class="col-sm-12">
+                              <select class="form-control tbody" id="prod" onchange="changeproduct(this.value)">
+                                <option>Select Product</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-12 col-form-label">Qauntity In Stock</label>
+                            <div class="col-sm-12">
+                            <input type='text' name='qtyIn' id='qtyInStock' disabled>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-form-label">Qauntity out</label>
+                                <div class="col-sm-12">
+                                <input type='number' name='qtyOut' id='qtyOutStock'>
+                                </div>
+                            </div>
+                        </div>
+                
+                      <button class='btn btn-lg btn-primary form-control' type='submit'> Submit</button>
+                      </div>
+                    </form>
                   </div>
                 </div>
+              </div>
               </div>
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          <footer class="footer">
+          <!-- <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="https://www.cognativeinsights.com/" target="_blank">Cognative Insights</a>. All rights reserved.</span>
             </div>
-          </footer>
+          </footer> -->
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -160,117 +244,67 @@
     <script src="../../assets/js/todolist.js"></script>
     <script src="../../assets/js/fetchReq.js"></script>
     <script>
-        var data = {"pageNo": "1","pageSize": "20"}
-        function getproducts(){
+        var prods = '', sel = ''
+         function getproducts(){
           var url = 'http://207.154.205.173:4000/efris_v.0.0.1/inventoryManagement/goodsOrServiceInquiry';
+          var data = {};
           var trows = '';
           postData(url, data)
             .then(data => {
                 // console.log(data); // JSON data parsed by `data.json()` call
                 if(data.status){
+                    prods = data.data.records
                     if(data.data.records.length > 0){
-                        data.data.records.forEach(element => {
+                        data.data.records.forEach((element,index) => {
                             trows += `
-                                <tr>
-                                    <td>${element.goodsName}</td>    
-                                    <td>${element.unitPrice}</td>    
-                                    <td>${element.commodityCategoryName}</td>    
-                                    <td>${element.stock}
-                                        <span style='display:block;float:right;'>
-                                            <a class='add' href="#" style='color:green;cursor:pointer;font-size:16px;' data-goodsCode='${element.id}' title='adds 10'>+</a>
-                                            <a class='sub' href="#" style='color:red;cursor:pointer;font-size:16px;' data-goodsCode='${element.id}' title='reduces by 1'>-</a>    
-                                        </span>    
-                                    </td>    
-                                    <td>${element.createDate}</td>    
-                                </tr>
+                                <option value='${index}'>${element.goodsName}</option>
                             `
                         });
                         // console.log(trows)
                         $('.tbody').append(trows)
                     }
                 }else{
-alert("Failed")                }
+                    alert("Failed")                
+                }
             });
         }
         getproducts();
-        $(document).on('click','.add',function(e){
-            e.preventDefault();
-            var goodsCode = 
-            {
-                "details":{
-                    "supplierTin": "1014650988",
-                    "supplierName": "Test Supplier",
-                    "stockInType": "import",
-                    "productionBatchNo":""
-                },
-                "goodsStockIn": [
-                    {
-                        "commodityGoodsId": $(this).attr('data-goodsCode'),
-                        "quantity": "100",
-                        "unitPrice": "12333.99"
-                    }
-                ]
-            }
-        var url = 'http://207.154.205.173:4000/efris_v.0.0.1/inventoryManagement/addToInventory';
-          var top1 = '';
-          postData(url,goodsCode)
-            .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-                if(data.status){
-                    data.data.forEach(element => {
-                      top1 += `
-                      <option value="${element.commodityCategoryCode}">
-                        ${element.commodityCategoryName}
-                      </option>
-                      `
-                    });
-                    $('.top1').append(top1)
-                    getproducts();
-                }else{
-alert("Failed")                }
-            });
-            getproducts();
-        })
-        $(document).on('click','.sub',function(e){
-            e.preventDefault();
-            var goodsCode = 
-            {
-                "details":{
-                    "supplierTin": "1014650988",
-                    "supplierName": "Test Supplier",
-                    "stockInType": "import",
-                    "productionBatchNo":"",
-                    "adjustType":"expiredGoods"
-                },
-                "goodsStockIn": [
-                    {
-                        "commodityGoodsId": $(this).attr('data-goodsCode'),
-                        "quantity": "1",
-                        "unitPrice": "300000.99"
-                    }
-                ]
-            }
-        var url = 'http://207.154.205.173:4000/efris_v.0.0.1/inventoryManagement/reduceFromInventory';
-          var top1 = '';
-          postData(url,goodsCode)
-            .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-                if(data.status){
-                    data.data.forEach(element => {
-                      top1 += `
-                      <option value="${element.commodityCategoryCode}">
-                        ${element.commodityCategoryName}
-                      </option>
-                      `
-                    });
-                    $('.top1').append(top1)
-                    getproducts();
-                }else{
-alert("Failed")                }
-            });
+        function changeproduct(prod){
+            sel=prod
+            $('#qtyInStock').val(prods[prod].stock)
+        }
 
+        $('.form-sample').on('submit',function(e){
+          e.preventDefault()
+          var obj = {
+              buyer:{},
+              goods:[{}],
+              basicinfo:{}
+            }
+          obj.buyer.tin = $('#buyerTin').val();
+          obj.buyer.email = $('#buyerEmail').val();
+          obj.basicinfo.currency = $('#currency').val();
+          obj.basicinfo.invoiceKind = $('#type').val();
+          obj.basicinfo.issueDate = $('#issueDate').val();
+
+          obj.goods[0].goodsCode = prods[sel].goodsCode;
+          obj.goods[0].paymentMethod = "mobileMoney";
+          obj.goods[0].qty = $('#qtyOutStock').val();
+          obj.goods[0].orderNumber = "ahjhh"
+
+      
+          var url = 'http://207.154.205.173:4000/efris_v.0.0.1/invoiceManagement/invoiceUpload';
+          var top1 = '';
+          postData(url,obj)
+            .then(data => {
+                console.log(data); // JSON data parsed by `data.json()` call
+                if(data.status){
+                    alert("Saved Invoice")
+                }else{
+                alert(data.message)                }
+            });
         })
-      </script>
+    </script>
     <!-- End custom js for this page -->
   </body>
 </html>

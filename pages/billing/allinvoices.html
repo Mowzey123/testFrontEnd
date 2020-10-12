@@ -115,8 +115,10 @@
                         <thead>
                           <tr>
                             <th>Invoice Id</th>
-                            <th>Total Amount</th>
                             <th>Buyer</th>
+                            <th>Invoice Kind</th>
+                            <th>Gross Amount</th>
+                            <th>Taxed Amount</th>
                             <th>Date Added</th>
                           </tr>
                         </thead>
@@ -160,27 +162,26 @@
     <script src="../../assets/js/fetchReq.js"></script>
     <script>
         var data = {"pageNo": "1","pageSize": "20"}
-        function getproducts(){
-          var url = 'http://207.154.205.173:4000/efris_v.0.0.1/inventoryManagement/goodsOrServiceInquiry';
+        function getInvoices(){
+          var url = 'http://207.154.205.173:4000/efris_v.0.0.1/invoiceManagement/queryNormalInvoicesOrReceipt';
           var trows = '';
           postData(url, data)
             .then(data => {
-                // console.log(data); // JSON data parsed by `data.json()` call
+                console.log(data); // JSON data parsed by `data.json()` call
                 if(data.status){
                     if(data.data.records.length > 0){
                         data.data.records.forEach(element => {
                             trows += `
                                 <tr>
-                                    <td>${element.goodsName}</td>    
-                                    <td>${element.unitPrice}</td>    
-                                    <td>${element.commodityCategoryName}</td>    
-                                    <td>${element.stock}
-                                        <span style='display:block;float:right;'>
-                                            <a class='add' href="#" style='color:green;cursor:pointer;font-size:16px;' data-goodsCode='${element.id}'>+</a>
-                                            <a class='sub' href="#" style='color:red;cursor:pointer;font-size:16px;' data-goodsCode='${element.id}'>-</a>    
-                                        </span>    
+                                    <td>${element.id}</td>    
+                                    <td>${element.buyerLegalName}</td>    
+                                    <td>${
+                                      element.invoiceKind == "2" ? "receipt":"invoice"
+                                    }</td>    
+                                    <td>${element.grossAmount}    
                                     </td>    
-                                    <td>${element.createDate}</td>    
+                                    <td>${element.taxAmount}</td>    
+                                    <td>${element.issuedDate}</td>    
                                 </tr>
                             `
                         });
@@ -188,86 +189,11 @@
                         $('.tbody').append(trows)
                     }
                 }else{
-                    console.log("Failed")
+                  alert("Failed")               
                 }
             });
         }
-        getproducts();
-        $(document).on('click','.add',function(e){
-            e.preventDefault();
-            var goodsCode = 
-            {
-                "details":{
-                    "supplierTin": "1014650988",
-                    "supplierName": "Test Supplier",
-                    "stockInType": "import",
-                    "productionBatchNo":""
-                },
-                "goodsStockIn": [
-                    {
-                        "commodityGoodsId": $(this).attr('data-goodsCode'),
-                        "quantity": "100",
-                        "unitPrice": "12333.99"
-                    }
-                ]
-            }
-        var url = 'http://207.154.205.173:4000/efris_v.0.0.1/inventoryManagement/addToInventory';
-          var top1 = '';
-          postData(url,goodsCode)
-            .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-                if(data.status){
-                    data.data.forEach(element => {
-                      top1 += `
-                      <option value="${element.commodityCategoryCode}">
-                        ${element.commodityCategoryName}
-                      </option>
-                      `
-                    });
-                    $('.top1').append(top1)
-                }else{
-                    console.log("Failed")
-                }
-            });
-        })
-        $(document).on('click','.sub',function(e){
-            e.preventDefault();
-            var goodsCode = 
-            {
-                "details":{
-                    "supplierTin": "1014650988",
-                    "supplierName": "Test Supplier",
-                    "stockInType": "import",
-                    "productionBatchNo":"",
-                    "adjustType":"expiredGoods"
-                },
-                "goodsStockIn": [
-                    {
-                        "commodityGoodsId": $(this).attr('data-goodsCode'),
-                        "quantity": "1",
-                        "unitPrice": "300000.99"
-                    }
-                ]
-            }
-        var url = 'http://207.154.205.173:4000/efris_v.0.0.1/inventoryManagement/reduceFromInventory';
-          var top1 = '';
-          postData(url,goodsCode)
-            .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
-                if(data.status){
-                    data.data.forEach(element => {
-                      top1 += `
-                      <option value="${element.commodityCategoryCode}">
-                        ${element.commodityCategoryName}
-                      </option>
-                      `
-                    });
-                    $('.top1').append(top1)
-                }else{
-                    console.log("Failed")
-                }
-            });
-        })
+        getInvoices();
       </script>
     <!-- End custom js for this page -->
   </body>
