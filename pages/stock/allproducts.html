@@ -177,8 +177,8 @@
                                     <td>${element.commodityCategoryName}</td>    
                                     <td>${element.stock}
                                         <span style='display:block;float:right;'>
-                                            <a class='add' href="#" style='color:green;cursor:pointer;font-size:16px;' data-goodsCode='${element.id}'>+</a>
-                                            <a class='sub' href="#" style='color:red;cursor:pointer;font-size:16px;' data-goodsCode='${element.id}'>-</a>    
+                                            <a class='add' href="#" style='color:green;cursor:pointer;font-size:16px;' data-goodsCode='${element.id}' title='adds 10'>+</a>
+                                            <a class='sub' href="#" style='color:red;cursor:pointer;font-size:16px;' data-goodsCode='${element.id}' title='reduces by 1'>-</a>    
                                         </span>    
                                     </td>    
                                     <td>${element.createDate}</td>    
@@ -226,10 +226,12 @@
                       `
                     });
                     $('.top1').append(top1)
+                    getproducts();
                 }else{
                     console.log("Failed")
                 }
             });
+            getproducts();
         })
         $(document).on('click','.sub',function(e){
             e.preventDefault();
@@ -264,10 +266,12 @@
                       `
                     });
                     $('.top1').append(top1)
+                    getproducts();
                 }else{
                     console.log("Failed")
                 }
             });
+
         })
       </script>
     <!-- End custom js for this page -->
