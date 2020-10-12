@@ -36,7 +36,7 @@ gulp.task('sass', function () {
 gulp.task('serve', gulp.series('sass', function () {
 
     browserSync.init({
-        port: 3000,
+        // port: 3000,
         proxy: "207.154.205.173:3000",
         // server: "./",
         open: false,
@@ -44,8 +44,8 @@ gulp.task('serve', gulp.series('sass', function () {
         notify: false
     });
 
-    gulp.watch('./assets/scss/**/*.scss', gulp.series('sass'));
-    gulp.watch(['./assets/js/**/*.js', './**/*.html', './assets/css/**/*.css']).on('change', browserSync.reload);
+    // gulp.watch('./assets/scss/**/*.scss', gulp.series('sass'));
+    // gulp.watch(['./assets/js/**/*.js', './**/*.html', './assets/css/**/*.css']).on('change', browserSync.reload);
 
 }));
 
