@@ -319,17 +319,17 @@
           };
           switch (cat) {
             case "top1":
-              url = "http://127.0.0.1:4000/efris_v.0.0.1/categoriesManagement/getLevelTwoCategories";
+              url = "http://207.154.205.173:4000/efris_v.0.0.1/categoriesManagement/getLevelTwoCategories";
               data.commodityCategoryLevel = '2'
               toappend = ".top2"
               break;
             case "top2":
-              url = "http://127.0.0.1:4000/efris_v.0.0.1/categoriesManagement/getLevelThreeCategories";
+              url = "http://207.154.205.173:4000/efris_v.0.0.1/categoriesManagement/getLevelThreeCategories";
               data.commodityCategoryLevel = '3'
               toappend = ".top3"
             break;
             case "top3":
-              url = "http://127.0.0.1:4000/efris_v.0.0.1/categoriesManagement/getLevelFourCategories";
+              url = "http://207.154.205.173:4000/efris_v.0.0.1/categoriesManagement/getLevelFourCategories";
               data.commodityCategoryLevel = '4'
               toappend = ".top4"
             break;
@@ -369,7 +369,7 @@
           console.log($('#description').val())
           obj.goods[0].measureUnit = $("#measureUnit").val()
           obj.goods[0].currency = $("#currency").val()
-          var url = 'http://127.0.0.1:4000/efris_v.0.0.1/inventoryManagement/saveGoods';
+          var url = 'http://207.154.205.173:4000/efris_v.0.0.1/inventoryManagement/saveGoods';
           var top1 = '';
           postData(url,obj)
             .then(data => {

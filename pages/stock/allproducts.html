@@ -162,7 +162,7 @@
     <script>
         var data = {"pageNo": "1","pageSize": "20"}
         function getproducts(){
-          var url = 'http://127.0.0.1:4000/efris_v.0.0.1/inventoryManagement/goodsOrServiceInquiry';
+          var url = 'http://207.154.205.173:4000/efris_v.0.0.1/inventoryManagement/goodsOrServiceInquiry';
           var trows = '';
           postData(url, data)
             .then(data => {
@@ -212,7 +212,7 @@
                     }
                 ]
             }
-        var url = 'http://127.0.0.1:4000/efris_v.0.0.1/inventoryManagement/addToInventory';
+        var url = 'http://207.154.205.173:4000/efris_v.0.0.1/inventoryManagement/addToInventory';
           var top1 = '';
           postData(url,goodsCode)
             .then(data => {
