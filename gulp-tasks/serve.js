@@ -38,7 +38,7 @@ gulp.task('serve', gulp.series('sass', function () {
     browserSync.init({
         port: 3000,
         proxy: "207.154.205.173:3000",
-        server: "./",
+        // server: "./",
         open: false,
         ghostMode: false,
         notify: false
