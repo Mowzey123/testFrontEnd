@@ -36,16 +36,14 @@ gulp.task('sass', function () {
 gulp.task('serve', gulp.series('sass', function () {
 
     browserSync.init({
-        // port: 3000,
-        proxy: "0.0.0.0:3000",
-        // server: "./",
-        open: false,
+        port: 3000,
+        server: "./",
         ghostMode: false,
         notify: false
     });
 
-    // gulp.watch('./assets/scss/**/*.scss', gulp.series('sass'));
-    // gulp.watch(['./assets/js/**/*.js', './**/*.html', './assets/css/**/*.css']).on('change', browserSync.reload);
+    gulp.watch('./assets/scss/**/*.scss', gulp.series('sass'));
+    gulp.watch(['./assets/js/**/*.js', './**/*.html', './assets/css/**/*.css']).on('change', browserSync.reload);
 
 }));
 
