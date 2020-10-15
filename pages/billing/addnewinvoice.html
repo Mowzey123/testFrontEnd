@@ -179,32 +179,40 @@
                     <h5>Items</h5>
                       <hr/>
                       <div class="row"> 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                           <div class="form-group row">
                             <label class="col-sm-12 col-form-label">Product</label>
                             <div class="col-sm-12">
-                              <select class="form-control tbody" id="prod" onchange="changeproduct(this.value)">
+                              <select class="form-control tbody" id="prod" onchange="changeproduct(this.value)" required>
                                 <option>Select Product</option>
                               </select>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                         <div class="form-group row">
                             <label class="col-sm-12 col-form-label">Qauntity In Stock</label>
                             <div class="col-sm-12">
-                            <input type='text' name='qtyIn' id='qtyInStock' disabled>
+                            <input type='text' name='qtyIn' id='qtyInStock' disabled class="form-control">
                             </div>
                         </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group row">
                                 <label class="col-sm-12 col-form-label">Qauntity out</label>
                                 <div class="col-sm-12">
-                                <input type='number' name='qtyOut' id='qtyOutStock'>
+                                <input type='number' name='qtyOut' id='qtyOutStock' class="form-control">
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-3">
+                          <div class="form-group row">
+                              <label class="col-sm-12 col-form-label">Amount</label>
+                              <div class="col-sm-12">
+                              <input type='number' name='amount' id='amount' class="form-control">
+                              </div>
+                          </div>
+                      </div>
                 
                       <button class='btn btn-lg btn-primary form-control' type='submit'> Submit</button>
                       </div>
@@ -279,17 +287,18 @@
           var obj = {
               buyer:{},
               goods:[{}],
-              basicinfo:{}
+              basicInfo:{}
             }
           obj.buyer.tin = $('#buyerTin').val();
           obj.buyer.email = $('#buyerEmail').val();
-          obj.basicinfo.currency = $('#currency').val();
-          obj.basicinfo.invoiceKind = $('#type').val();
-          obj.basicinfo.issueDate = $('#issueDate').val();
+          obj.basicInfo.currency = $('#currency').val();
+          obj.basicInfo.invoiceKind = $('#type').val();
+          obj.basicInfo.issueDate = $('#issueDate').val();
 
           obj.goods[0].goodsCode = prods[sel].goodsCode;
           obj.goods[0].paymentMethod = "mobileMoney";
           obj.goods[0].qty = $('#qtyOutStock').val();
+          obj.goods[0].amount = $('#amount').val();
           obj.goods[0].orderNumber = "ahjhh"
 
       
@@ -301,7 +310,9 @@
                 if(data.status){
                     alert("Saved Invoice")
                 }else{
-                alert(data.message)                }
+                alert(data.message)  
+                console.log(data.message)               
+                  alert(data.error)               }
             });
         })
     </script>

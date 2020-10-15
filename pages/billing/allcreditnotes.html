@@ -96,7 +96,7 @@
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-home"></i>
-                </span> Invoices </h3>
+                </span> Credit Notes </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item active" aria-current="page">
@@ -109,17 +109,17 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">All Invoices</h4>
+                      <h4 class="card-title">All Credit Notes</h4>
                       </p>
-                      <table class="table">
+                      <table class="table table-responsive">
                         <thead>
                           <tr>
+                            <th>Id</th>
                             <th>Invoice Id</th>
                             <th>Buyer</th>
-                            <th>Invoice Kind</th>
                             <th>Gross Amount</th>
-                            <th>Taxed Amount</th>
-                            <th>Date Added</th>
+                            <th>Inital Gross Amount</th>
+                            <th>Status</th>
                           </tr>
                         </thead>
                         <tbody class='tbody'>
@@ -161,9 +161,21 @@
     <script src="../../assets/js/todolist.js"></script>
     <script src="../../assets/js/fetchReq.js"></script>
     <script>
-        var data = {"pageNo": "1","pageSize": "20"}
+        var data = {
+        "referenceNo": "",
+        "oriInvoiceNo": "",
+        "invoiceNo": "",
+        "combineKeywords": "",
+        "approveStatus": "",
+        "queryType": "1",
+        "invoiceApplyCategoryCode": "",
+        "startDate": "",
+        "endDate": "",
+        "pageNo": "1",
+        "pageSize": "10"
+        }
         function getInvoices(){
-          var url = 'http://207.154.205.173:4000/efris_v.0.0.1/invoiceManagement/queryNormalInvoicesOrReceipt';
+          var url = 'http://207.154.205.173:4000/efris_v.0.0.1/creditNoteManagement/NoteApplicationListQuery';
           var trows = '';
           postData(url, data)
             .then(data => {
@@ -174,14 +186,14 @@
                             trows += `
                                 <tr>
                                     <td>${element.id}</td>    
+                                    <td>${element.invoiceNo}</td>    
                                     <td>${element.buyerLegalName}</td>    
-                                    <td>${
-                                      element.invoiceKind == "2" ? "receipt":"invoice"
-                                    }</td>    
                                     <td>${element.grossAmount}    
                                     </td>    
-                                    <td>${element.taxAmount}</td>    
-                                    <td>${element.issuedDate}</td>    
+                                    <td>${element.oriGrossAmount}</td>    
+                                    <td>${
+                                      element.approveStatus = '101' ?  'Approved' : (element.approveStatus = '102'? 'submitted':'rejected') 
+                                      }</td>    
                                 </tr>
                             `
                         });
@@ -189,7 +201,8 @@
                         $('.tbody').append(trows)
                     }
                 }else{
-                  alert(data.message)               
+                  console.log(data.message)               
+                  alert(data.error)               
                 }
             });
         }
